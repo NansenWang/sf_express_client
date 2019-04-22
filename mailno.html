@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>路由查詢</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <script type="text/javascript" src="template/js/jquery.js"></script>
+        
+    </head>
+    <body>
+    <br>
+    <br>
+
+    <div>路由查詢</div>   
+<!--         <form name="form1"  id="form1" enctype="multipart/form-data" method="get" onsubmit="return MainSubmit();">
+        <div>運單號碼:<input type="text" id="mailno" name="mailno" value="447027705136"></div>
+        <div><input type="submit" class="btn" value="確定" /></div>
+        </form> -->
+        <div><a href="http://www.sf-express.com/tw/tc/dynamic_function/waybill/#search/bill-number/447027705136" target="_blank">447027705136</a></div>
+ 
+
+    </body>
+
+        <script language="javascript">
+            function MainSubmit(){
+                var mailno=$("#mailno").val();
+
+                if (mailno.length!=12){
+                    alert("請輸入運單號12碼!");
+                    return false;
+                }else{
+                document.getElementById("form1").action="http://www.sf-express.com/cn/sc/dynamic_function/waybill/#search/bill-number/"+mailno;            
+                document.getElementById("form1").submit();
+                return true;
+                }
+            }
+        </script>
+
+</html>
