@@ -1,5 +1,6 @@
-    var ajax_url = "https://bsp-dev-api.sf-express.com.tw/sf_express_accept/ajax_httppost.php";
+    var ajax_url = "/sf_express_accept/ajax_httppost.php";
     //var ajax_url = "http://192.168.245.129/sf_express_accept/ajax_httppost.php";
+    //var ajax_url = "https://bsp-api.sf-express.com.tw/sf_express_accept/ajax_httppost.ph";
     function OrderService(){
         var chkrlt=AcceptWord();
         if (chkrlt==0){
@@ -36,8 +37,10 @@
                     things: $("#things").val(),
                     things_num:$("#things_num").val(),
                     remark:$("#remark").val(),
-                    acceptword:$("#acceptword").val(),
-                    chkword:$("#chkword").val(),
+                    clientCode:$("#clientCode").val(),
+                    checkword:$("#checkword").val(),
+                    declared_value:$("#declared_value").val(),
+                    declared_value_currency:$("#declared_value_currency").val(),
                     OrderService_Mode:$("#OrderService_Mode").val()
                 },
                 success:function(exe){
@@ -49,89 +52,4 @@
 
     }
 
-    function OrderFilterService(){
-        var chkrlt=AcceptWord();
-        if (chkrlt==0){
-            alert("接入編碼或檢驗碼錯誤!");
-        }else{          
-            $.ajax({
-                url:ajax_url,
-                type:"POST",
-                dataType:"text",
-                beforeSend :function(){
-                    $("#loadbox").show();
-                },
-                data:{
-                    action:"OrderFilterService",
-                    search_orderid:$("#search_orderid").val(),
-                    search_d_address:$("#search_d_address").val(),
-                    search_d_tel:$("#search_d_tel").val(),
-                    search_j_custid:$("#search_j_custid").val(),
-                    search_j_address:$("#search_j_address").val(),
-                    search_j_tel:$("#search_j_tel").val(),
-                    acceptword:$("#acceptword").val(),
-                    chkword:$("#chkword").val(),
-                    OrderFilterService_Mode:$("#OrderFilterService_Mode").val()
-                },
-                success:function(exe){
-                    $("#loadbox").hide();
-                    $("#OrderFilterService_ANS").html(exe);
-                }
-            });
-        }    
-    }
-
-    function OrderSearchService(){
-        var chkrlt=AcceptWord();
-        if (chkrlt==0){
-            alert("接入編碼或檢驗碼錯誤!");
-        }else{ 
-            $.ajax({
-                url:ajax_url,
-                type:"POST",
-                dataType:"text",
-                beforeSend :function(){
-                    $("#loadbox").show();
-                },
-                data:{
-                    action:"OrderSearchService",
-                    search_orderid:$("#search_orderid").val(),
-                    acceptword:$("#acceptword").val(),
-                    chkword:$("#chkword").val(),
-                    OrderSearchService_Mode:$("#OrderSearchService_Mode").val()
-                },
-                success:function(exe){
-                    $("#loadbox").hide();
-                    $("#OrderSearchService_ANS").html(exe);
-                }
-            });
-        }
-    }
-
-    function RouteService(){
-        var chkrlt=AcceptWord();
-        if (chkrlt==0){
-            alert("接入編碼或檢驗碼錯誤!");
-        }else{ 
-
-            $.ajax({
-                url:ajax_url,
-                type:"POST",
-                dataType:"text",
-                beforeSend :function(){
-                    $("#loadbox").show();
-                },
-                data:{
-                    action:"RouteService",
-                    route_mailno:$("#route_mailno").val(),
-                    acceptword:$("#acceptword").val(),
-                    chkword:$("#chkword").val(),
-                    RouteService_Mode:$("#RouteService_Mode").val()
-                },
-                success:function(exe){
-                    $("#loadbox").hide();
-                    $("#RouteService_ANS").html(exe);
-                }
-            });
-        }    
-    }
+    
