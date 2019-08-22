@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>順豐接口</title>
+        <link rel="stylesheet" href="template/style/common.css" media="screen"/>
+        <script type="text/javascript" src="template/js/jquery.js"></script>
+        <script type="text/javascript" src="template/js/httppost.js"></script>
+        <link rel="stylesheet" href="template/style/bootstrap-datetimepicker.css">
+        <script type="text/javascript" src="template/js/bootstrap-datetimepicker.js"></script>               
+    </head>
+
+    <body>
+        <p id="res"></p>
+
+        <div id="loadbox">
+            <div id="loadboxer">
+                <div id="load_ico">
+                    <div id="load_icoimg"><img src="template/images/loading.gif" width="100%" height="100%" /></div>
+                </div>
+                <div id="load_content">
+                    正在傳遞信息
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="testtitle">順豐接口</div>
+                <table><tr><td>接入碼：<input type="input" id="clientCode" name="clientCode" value="X4K1" class="inputstyle" maxlength="4">4碼</td></tr>
+                <tr><td>檢驗碼：<input type="input" id="checkword" name="checkword" value="L0uPZVyaSw5Edmnj8r7ihftxC2Gkoqb9" class="inputstyle" maxlength="32" size="35">32碼</td></tr>
+                </table>
+            <div class="testbox">
+                <div class="que_title"><span>下訂單接口（OrderService）</span></div>
+
+                <div class="que_content">
+                    <table width="100%">
+                        <tr>
+                            <td align="right" width="80px"><b>訂單號：</b></td>
+                            <td><input type="input" id="orderid" value="" class="inputstyle" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>快件類型：</b></td>
+                            <td>
+                                <select class="inputstyle" id="express_type">
+                                    <option value="1" selected="true">標準快遞 </option>
+                                    <option value="2">顺豐特惠</option>
+                                    <option value="3">電商特惠</option>
+                                    <option value="7">電商速配</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="20" colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>寄件方公司：</b></td>
+                            <td><input type="input" id="j_company" value="" class="inputstyle" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>寄件方姓名：</b></td>
+                            <td><input type="input" id="j_contact" value="" class="inputstyle" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>寄件方電話：</b></td>
+                            <td><input type="input" id="j_tel" value="" class="inputstyle" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>寄件省市區：</b></td>
+                            <td>
+                                <input type="input" id="j_province" style="width:60px" value="" class="inputstyle" />
+                                <input type="input" id="j_city" style="width:60px" value="" class="inputstyle" />
+                                <input type="input" id="j_qu" style="width:60px" value="" class="inputstyle" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>寄件方地址：</b></td>
+                            <td><input type="input" id="j_address" style="width:240px" value="" class="inputstyle" /></td>
+                        </tr>
+                        <tr>
+                            <td height="20" colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>到件方公司：</b></td>
+                            <td><input type="input" id="d_company" value="" class="inputstyle" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>到件方姓名：</b></td>
+                            <td><input type="input" id="d_contact" value="" class="inputstyle" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>到件方電話：</b></td>
+                            <td><input type="input" id="d_tel" value="" class="inputstyle" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>到件省市區：</b></td>
+                            <td>
+                                <input type="input" id="d_province" style="width:60px" value="" class="inputstyle" />
+                                <input type="input" id="d_city" style="width:60px" value="" class="inputstyle" />
+                                <input type="input" id="d_qu" style="width:60px" value="" class="inputstyle" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>到件方地址：</b></td>
+                            <td><input type="input" id="d_address" style="width:240px" value="" class="inputstyle" /></td>
+                        </tr>
+                        <tr>
+                            <td height="20" colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>付款方式：</b></td>
+                            <td>
+                                <select class="inputstyle" id="pay_method">
+                                    <option value="1" selected="true">寄付月结 </option>
+                                    <option value="2">收方付款</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>付款帳號：</b></td>
+                            <td><input type="input" id="custid" style="width:120px" value="" class="inputstyle" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>代收金額：</b></td>
+                            <td><input type="input" id="daishou" style="width:240px" value="0" class="inputstyle" /></td>
+                        </tr>
+                        <tr>
+                            <td height="20" colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>物品：</b></td>
+                            <td><input type="input" id="things" style="width:240px" value="" class="inputstyle" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>數量：</b></td>
+                            <td><input type="input" id="things_num" style="width:240px" value="1" class="inputstyle" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>申明價值：</b></td>
+                            <td><input type="input" id="declared_value" style="width:240px" value="100.00" class="inputstyle" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>幣別：</b></td>
+                            <td>
+                                <select id="declared_value_currency">
+                                    <option value="USD">美元</option>
+                                    <option value="NTD">新台幣</option>
+                                    <option value="CNY">人民幣</option>
+                                    <option value="HKD">港幣</option>
+                                    <option value="RUB">盧布</option>
+                                    <option value="EUR">歐元</option>
+                                    <option value="MOP">澳門元</option>
+                                    <option value="SGD">新元</option>
+                                    <option value="JPY">日元</option>
+                                    <option value="KRW">韓元</option>
+                                    <option value="MYR">馬幣</option></option>
+                                    <option value="VND">越南盾</option>
+                                    <option value="THB">泰銖</option>
+                                    <option value="AUD">澳大利亞元</option>
+                                    <option value="MNT">圖格里克</option>
+                                </select>
+                            </td>
+                        </tr>                        
+
+
+                        <tr>
+                            <td align="right" width="80px"><b>備註：</b></td>
+                            <td><input type="input" id="remark" style="width:240px" value="精密儀器，小心輕拿輕放~" class="inputstyle" /></td>
+                        </tr>
+                        <tr>
+                            <td height="20" colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>數據格式：</b></td>
+                            <td height="20" colspan="2">
+                                <select class="inputstyle" id="OrderService_Mode">
+                                    <option value="XML" selected="true">XML</option>
+                                    <option value="JSON">JSON</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" class="btn" value="確定" onclick="OrderService();" /></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="que_ant">回饋結果：</div>
+                <div class="que_ans" id="OrderService_ANS"></div>
+            </div>
+            <div class="testbox">
+                <div class="que_title"><span>路由查询（RouteService）</span></div>
+                <div class="que_content">
+                    <table width="100%">
+                        <tr>
+                            <td align="right" width="80px"><b>運單號：</b></td>
+                            <td><input type="input" id="route_mailno" value="" class="inputstyle" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>數據格式：</b></td>
+                            <td height="20" colspan="2">
+                                <select class="inputstyle" id="RouteService_Mode">
+                                    <option value="XML" selected="true">XML</option>
+                                    <option value="JSON">JSON</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" class="btn" value="確定" onclick="RouteService();" /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="que_ant">回饋結果：</div>
+                <div class="que_ans" id="RouteService_ANS"></div>
+            </div>
+
+            <div class="testbox">
+                <div class="que_title"><span>路由推送（RoutePushService）</span></div>
+                <div class="que_content">
+                    <table width="100%">
+                        <tr>
+                            <td align="right" width="85px"><b>節點信息編號：</b></td>
+                            <td><input type="input" id="route_msg_id" value="200493564547309" class="inputstyle" /></td>                            
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>運單號：</b></td>
+                            <td><input type="input" id="mailno" value="444503232451" class="inputstyle" /></td>
+                        </tr>
+
+                        <tr>
+                            <td align="right" width="80px"><b>訂單號：</b></td>
+                            <td><input type="input" id="route_orderid" value="201603041555024823" class="inputstyle" /></td>
+                        </tr>
+
+                        <tr>
+                            <td align="right" width="85px"><b>節點產生時間：</b></td>
+                            <td><input type="input" id="acceptTime" value="2018-08-06 14:36:36" class="inputstyle" /></td> 
+
+                            <!--  input-append date form_datetime -->
+                        </tr>
+
+                        <tr>
+                            <td align="right" width="85px"><b>節點發生城市：</b></td>
+                            <td><input type="input" id="acceptAddress" value="深圳市" class="inputstyle" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="85px"><b>節點具体描述：</b></td>
+                            <td><input type="input" id="push_remark" value="正在派送途中,请您准备签收(派件人:王兵,电话:11111111111)" class="inputstyle" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>節點操作碼：</b></td>
+                            <td><input type="input" id="opCode" value="44" class="inputstyle" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>數據格式：</b></td>
+                            <td height="20" colspan="2">
+                                <select class="inputstyle" id="RoutePushService_Mode">
+                                    <option value="XML" selected="true">XML</option>
+                                    <option value="JSON">JSON</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" class="btn" value="確定" onclick="RoutePushService();" /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="que_ant">回饋結果：</div>
+                <div class="que_ans" id="RoutePushService_ANS"></div>
+            </div>
+
+
+
+
+ 
+        </div>
+    </body>
+
+
+<script language="javascript">
+    $('.form_datetime').datetimepicker({
+
+        format: 'yyyy-mm-dd hh:ii'
+
+    }); 
+
+
+function AcceptWord(){
+
+    var clientCode=$("#clientCode").val();
+    var checkword=$("#checkword").val();
+
+
+    if ((clientCode.length!=4)||(checkword.length!=32)){
+        return 0;
+    }else{
+        return 1;
+    }
+}
+</script>
+
+</html>
