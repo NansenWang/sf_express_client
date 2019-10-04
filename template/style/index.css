@@ -72,7 +72,7 @@ b{
 
 
 #menu{
-    width: 308px; height: 208px; overflow: hidden;
+    width: 308px; height: 80px; overflow: hidden;
     background: #f8f8f8; position: absolute; box-shadow: 2px 2px 3px rgba(0,0,0,0.12);
     top: 40%; left: 50%; margin-left: -154px; margin-top: -104px;
 }

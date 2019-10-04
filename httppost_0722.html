@@ -2,12 +2,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">        
         <title>順豐接口</title>
         <link rel="stylesheet" href="template/style/common.css" media="screen"/>
         <script type="text/javascript" src="template/js/jquery.js"></script>
         <script type="text/javascript" src="template/js/httppost.js"></script>
+
                 
     </head>
 
@@ -43,7 +42,7 @@
                             <td>
                                 <select class="inputstyle" id="express_type">
                                     <option value="1" selected="true">標準快遞 </option>
-                                    <option value="2">順豐特惠</option>
+                                    <option value="2">顺豐特惠</option>
                                     <option value="3">電商特惠</option>
                                     <option value="7">電商速配</option>
                                 </select>
@@ -192,35 +191,9 @@
                 <div class="que_content">
                     <table width="100%">
                         <tr>
-                            <td align="right" width="80px"><b>查詢號類别：</b></td>
-                            <td>
-                                <select id="tracking_type" class="inputstyle">
-                                    <option value="1">順豐運單號</option>
-                                    <option value="2">客戶訂單號</option>
-                                    <!--option value="3">逆向單原始訂單號</option--> 
-                                </select>    
-                            </td>
+                            <td align="right" width="80px"><b>運單號：</b></td>
+                            <td><input type="input" id="route_mailno" value="" class="inputstyle" /></td>
                         </tr>
-
-                        <tr>
-                            <td align="right" width="80px"><b>依查詢號類别輸入單號</b></td>
-                            <td><input type="input" id="tracking_number" value="" class="inputstyle" /></td>
-                        </tr>
-
-                        <tr>
-                            <td align="right" width="80px"><b>路由查詢類别：</b></td>
-                            <td>
-                            <select id="method_type" class="inputstyle">
-                                <option value="1">標準路由</option>
-                                <option value="2">定制路由</option>
-                            </select>    
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right" width="80px"><b>參考編碼</b></td>
-                            <td><input type="input" id="reference_number" value="" class="inputstyle" placeholder="僅供亞馬遜客戶填寫" /></td>
-                        </tr>
-
                         <tr>
                             <td align="right" width="80px"><b>數據格式：</b></td>
                             <td height="20" colspan="2">
@@ -239,43 +212,7 @@
                 <div class="que_ans" id="RouteService_ANS"></div>
             </div>
 
-            <div class="testbox">
-                <div class="que_title"><span>訂單查询（OrderSearchService）</span></div>
-                <div class="que_content">
-                    <table width="100%">
-                        <tr>
-                            <td align="right" width="80px"><b>訂單號：</b></td>
-                            <td><input type="input" id="search_orderid" value="" class="inputstyle" /></td>
-                        </tr>
-                        <tr>
-                            <td align="right" width="80px"><b>查詢類型：</b></td>
-                            <td>
-                                <select class="inputstyle" id="search_type">
-                                <option value="1" selected="true">正向單查詢</option>
-                                <option value="2">退貨單查詢</option>
-                                </select>                                
-
-                            </td>
-                        </tr>  
-
-
-                        <tr>
-                            <td align="right" width="80px"><b>數據格式：</b></td>
-                            <td height="20" colspan="2">
-                                <select class="inputstyle" id="OrderSearchService_Mode">
-                                    <option value="XML" selected="true">XML</option>
-                                    <option value="JSON">JSON</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="button" class="btn" value="確定" onclick="OrderSearchService();" /></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="que_ant">回饋結果：</div>
-                <div class="que_ans" id="OrderSearchService_ANS"></div>
-            </div>
+ 
         </div>
     </body>
 

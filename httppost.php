@@ -1,3 +1,19 @@
+<?php 
+session_start();
+header("Content-Type:text/html; charset=utf-8");
+// Cross-Origin Resource Sharing Header
+header('Access-Control-Allow-Origin:*');
+header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
+header('Access-Control-Allow-Headers: X-Requested-With, Content-Type, Accept');
+
+define('_ROOT', str_replace("\\", '/', dirname(__FILE__)));
+
+require_once (_ROOT."/class/BFforHttpPost.class.php");
+
+
+?>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,6 +24,8 @@
         <link rel="stylesheet" href="template/style/common.css" media="screen"/>
         <script type="text/javascript" src="template/js/jquery.js"></script>
         <script type="text/javascript" src="template/js/httppost.js"></script>
+
+
                 
     </head>
 
@@ -43,7 +61,7 @@
                             <td>
                                 <select class="inputstyle" id="express_type">
                                     <option value="1" selected="true">標準快遞 </option>
-                                    <option value="2">順豐特惠</option>
+                                    <option value="2">顺豐特惠</option>
                                     <option value="3">電商特惠</option>
                                     <option value="7">電商速配</option>
                                 </select>
@@ -187,7 +205,7 @@
                 <div class="que_ant">回饋結果：</div>
                 <div class="que_ans" id="OrderService_ANS"></div>
             </div>
-            <div class="testbox">
+             <div class="testbox">
                 <div class="que_title"><span>路由查询（RouteService）</span></div>
                 <div class="que_content">
                     <table width="100%">
@@ -197,30 +215,15 @@
                                 <select id="tracking_type" class="inputstyle">
                                     <option value="1">順豐運單號</option>
                                     <option value="2">客戶訂單號</option>
-                                    <!--option value="3">逆向單原始訂單號</option--> 
+                                    <option value="3">逆向單原始訂單號</option>
                                 </select>    
                             </td>
                         </tr>
 
                         <tr>
                             <td align="right" width="80px"><b>依查詢號類别輸入單號</b></td>
-                            <td><input type="input" id="tracking_number" value="" class="inputstyle" /></td>
+                            <td><input type="input" id="route_mailno" value="" class="inputstyle" /></td>
                         </tr>
-
-                        <tr>
-                            <td align="right" width="80px"><b>路由查詢類别：</b></td>
-                            <td>
-                            <select id="method_type" class="inputstyle">
-                                <option value="1">標準路由</option>
-                                <option value="2">定制路由</option>
-                            </select>    
-                            </td>
-                        </tr>
-                        <tr>
-                            <td align="right" width="80px"><b>參考編碼</b></td>
-                            <td><input type="input" id="reference_number" value="" class="inputstyle" placeholder="僅供亞馬遜客戶填寫" /></td>
-                        </tr>
-
                         <tr>
                             <td align="right" width="80px"><b>數據格式：</b></td>
                             <td height="20" colspan="2">
@@ -239,44 +242,10 @@
                 <div class="que_ans" id="RouteService_ANS"></div>
             </div>
 
-            <div class="testbox">
-                <div class="que_title"><span>訂單查询（OrderSearchService）</span></div>
-                <div class="que_content">
-                    <table width="100%">
-                        <tr>
-                            <td align="right" width="80px"><b>訂單號：</b></td>
-                            <td><input type="input" id="search_orderid" value="" class="inputstyle" /></td>
-                        </tr>
-                        <tr>
-                            <td align="right" width="80px"><b>查詢類型：</b></td>
-                            <td>
-                                <select class="inputstyle" id="search_type">
-                                <option value="1" selected="true">正向單查詢</option>
-                                <option value="2">退貨單查詢</option>
-                                </select>                                
-
-                            </td>
-                        </tr>  
-
-
-                        <tr>
-                            <td align="right" width="80px"><b>數據格式：</b></td>
-                            <td height="20" colspan="2">
-                                <select class="inputstyle" id="OrderSearchService_Mode">
-                                    <option value="XML" selected="true">XML</option>
-                                    <option value="JSON">JSON</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><input type="button" class="btn" value="確定" onclick="OrderSearchService();" /></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="que_ant">回饋結果：</div>
-                <div class="que_ans" id="OrderSearchService_ANS"></div>
-            </div>
+ 
         </div>
+<button class='openid'>todobutton</button>
+
     </body>
 
 
@@ -297,3 +266,117 @@ function AcceptWord(){
 </script>
 
 </html>
+<?php 
+
+        // $BF = new BFapi();
+        // $data = $BF->OrderService($post_data)->Send()->readJSON();
+?>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://beangostg.blob.core.windows.net/beango-static-stg/sdk/beango_stg.min.js"></script>  
+<script>
+
+   
+
+
+// https://stg-api.beanfun.com/v1/official_account/7310917e39724f4d8c6bc9bfb0dcf6a6_oa/token?secret=2b92531a580843f898729919143cdc50_oas&v=2.0
+
+    var widget_id = '5d1de784dde81a0007a16bbf';
+    var $client_id = '2D5270D8-5675-438E-B030-5AED9DCEE658';
+    var $official_account_id = '7310917e39724f4d8c6bc9bfb0dcf6a6_oa';
+    var $official_account_access_token = 'e0a2c8fdeaa247a083189421be0c0e74_oat';
+    var secret ='2b92531a580843f898729919143cdc50_oas';
+    var $access_token;
+
+
+    BGO.init({ 
+    token: $official_account_access_token,
+    official_account_id: $official_account_id
+    });
+
+
+
+    $('.todo').on('click', function () {
+        //請將code內容第三項與第四項貼入至此
+        var client_id=$client_id; //須要向BeanGo! 申請取得。
+        var redirect_uri=''; //請先填 "" (empty string) 尚未開放，預留欄位
+        // 1.call sdk
+        BGO.get_me_openid_access_token(client_id, redirect_uri, callback);
+
+        // 2.call api
+        // var callback = function (data) {
+            // console.log(data);
+            //getopenid請用server to server 取得資料(https://stg-api.beanfun.com/v1/openid/token/verification?token={{data.access_token}})
+        // };
+        var callback = function (data) {
+        alert(data);  
+            console.log(JSON.stringify(data));  //callback回傳皆為JSON格式
+            //$access_token=data.me_profile.access_token;
+            //alert($access_token);
+            // $getOpenidUrl = 'https://stgapi.beanfun.com/v1/openid/token/verification?token='+$access_token;
+            // checkUser();
+        };
+        /*舉個例子：(請參考"開啟beanfun! APP QRcode頁面")
+        var style = {  //beanfun! APP QRcode 頁面可客制化的部份(目前僅支援Android客製化)
+            'title': '我是標題',
+            'color': 'DB440C'
+        }
+        BGO.scan_qr_code(style, callback);*/
+    })
+
+    function get_openid_access_token() {
+
+        BGO.init({
+            token: $official_account_access_token,
+            official_account_id:$official_account_id
+        });
+
+        BGO.get_me_openid_access_token($client_id, '', callback);
+    };
+
+
+    var callback = function (data) { 
+        console.log(data); 
+
+        //getOpenidUrl = 'https://stg-api.beanfun.com/v1/openid/token/verification?token=${data.access_token}';
+
+        getOpenidUrl = 'https://stg-api.beanfun.com/v1/official_account/7310917e39724f4d8c6bc9bfb0dcf6a6_oa/token?secret=2b92531a580843f898729919143cdc50_oas&v=2.0';
+        //e0a2c8fdeaa247a083189421be0c0e74_oat
+        //e0a2c8fdeaa247a083189421be0c0e74_oat
+        checkUser(); 
+    };
+
+
+
+    var  checkUser = function () {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+                var res = this.responseText.split(",");
+
+                //alert(res[4]);
+                $('.openid').text(res[4]);
+            }
+        }; 
+        console.log(getOpenidUrl);
+        xhttp.open("GET",getOpenidUrl , true); 
+        xhttp.send(); 
+    }
+
+
+    $(document).ready(function () { 
+        get_openid_access_token();    
+    });
+
+
+
+
+
+
+
+
+</script>  
+
+<script src="https://beangochat.blob.core.windows.net/beango-static-prod/sdk/vconsole.min.js">
+</script>
+<script>VConsole = new VConsole;</script>  

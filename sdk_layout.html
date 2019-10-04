@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>layout</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://beangostg.blob.core.windows.net/beango-static-stg/sdk/beango_stg.min.js"></script>
+    <!--正式區請改link <script src="https://beangochat.blob.core.windows.net/beango-static-prod/sdk/beango.min.js"></script> -->
+</head>
+
+<body>
+    <button class='todo'>todobutton</button>
+    <script>
+        //注意！為方便教學用，此寫法無法保護token與id，請在另外保護好access token
+        var client_id = '2D5270D8-5675-438E-B030-5AED9DCEE658';
+        var official_account_id = '7310917e39724f4d8c6bc9bfb0dcf6a6_oa';
+        var official_account_access_token = 'e0a2c8fdeaa247a083189421be0c0e74_oat';
+//取得方式 https://stg-api.beanfun.com/v1/official_account/7310917e39724f4d8c6bc9bfb0dcf6a6_oa/token?secret=2b92531a580843f898729919143cdc50_oas&v=1.0;
+
+        //必須先向BeanGo! 團隊，取得 official_account_id 和 official_account_secret。
+        //請呼叫API [ GET {{BeanGo_url}}/official_account/{{official_account_id}}/token?secret={{secret}}&v={{自訂version}} ] 來向 BeanGo Service 取得官方帳號access token。
+        //API使用方式與帶入參數需再參考 “beanfunOpenID界接技術文件20171025.docx”，請依最新版為準。
+        $(document).ready(function () {
+            BGO.init({
+                token: official_account_access_token,
+                official_account_id: official_account_id
+            });
+
+            $('.todo').on('click', function () {
+                //請將code內容第三項與第四項貼入至此
+
+                var client_id='2D5270D8-5675-438E-B030-5AED9DCEE658'; //須要向BeanGo! 申請取得。
+                var redirect_uri=''; //請先填 "" (empty string) 尚未開放，預留欄位
+
+
+                // 1.call sdk
+                BGO.get_me_openid_access_token(client_id, redirect_uri, callback);
+
+                // 2.call api
+                var callback = function (data) {
+                    console.log(JSON.stringify(data));  //callback回傳皆為JSON格式
+                    //getopenid請用server to server 取得資料(https://stg-api.beanfun.com/v1/openid/token/verification?token={{data.access_token}})
+                };
+
+
+
+
+
+                /*舉個例子：(請參考"開啟beanfun! APP QRcode頁面")
+                var style = {  //beanfun! APP QRcode 頁面可客制化的部份(目前僅支援Android客製化)
+                    'title': '我是標題',
+                    'color': 'DB440C'
+                }
+                BGO.scan_qr_code(style, callback);*/
+            })
+        })
+
+
+    </script>
+</body>
+
+</html>
