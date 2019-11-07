@@ -278,7 +278,7 @@ function AcceptWord(){
    
 
 
-// https://stg-api.beanfun.com/official_account/7310917e39724f4d8c6bc9bfb0dcf6a6_oa/token?secret=2b92531a580843f898729919143cdc50_oas&v=2.0
+// https://stg-api.beanfun.com/v1/official_account/7310917e39724f4d8c6bc9bfb0dcf6a6_oa/token?secret=2b92531a580843f898729919143cdc50_oas&v=2.0
 
     var widget_id = '5d1de784dde81a0007a16bbf';
     var $client_id = '2D5270D8-5675-438E-B030-5AED9DCEE658';
@@ -288,40 +288,40 @@ function AcceptWord(){
     var $access_token;
 
 
-    // BGO.init({ 
-    // token: $official_account_access_token,
-    // official_account_id: $official_account_id
-    // });
+    BGO.init({ 
+    token: $official_account_access_token,
+    official_account_id: $official_account_id
+    });
 
 
 
-    // $('.todo').on('click', function () {
-    //     //請將code內容第三項與第四項貼入至此
-    //     var client_id=$client_id; //須要向BeanGo! 申請取得。
-    //     var redirect_uri=''; //請先填 "" (empty string) 尚未開放，預留欄位
-    //     // 1.call sdk
-    //     BGO.get_me_openid_access_token(client_id, redirect_uri, callback);
+    $('.todo').on('click', function () {
+        //請將code內容第三項與第四項貼入至此
+        var client_id=$client_id; //須要向BeanGo! 申請取得。
+        var redirect_uri=''; //請先填 "" (empty string) 尚未開放，預留欄位
+        // 1.call sdk
+        BGO.get_me_openid_access_token(client_id, redirect_uri, callback);
 
-    //     // 2.call api
-    //     // var callback = function (data) {
-    //         // console.log(data);
-    //         //getopenid請用server to server 取得資料(https://stg-api.beanfun.com/v1/openid/token/verification?token={{data.access_token}})
-    //     // };
-    //     var callback = function (data) {
-    //     //alert(data);  
-    //         console.log(JSON.stringify(data));  //callback回傳皆為JSON格式
-    //         //$access_token=data.me_profile.access_token;
-    //         //alert($access_token);
-    //         // $getOpenidUrl = 'https://stgapi.beanfun.com/v1/openid/token/verification?token='+$access_token;
-    //         // checkUser();
-    //     };
-    //     /*舉個例子：(請參考"開啟beanfun! APP QRcode頁面")
-    //     var style = {  //beanfun! APP QRcode 頁面可客制化的部份(目前僅支援Android客製化)
-    //         'title': '我是標題',
-    //         'color': 'DB440C'
-    //     }
-    //     BGO.scan_qr_code(style, callback);*/
-    // })
+        // 2.call api
+        // var callback = function (data) {
+            // console.log(data);
+            //getopenid請用server to server 取得資料(https://stg-api.beanfun.com/v1/openid/token/verification?token={{data.access_token}})
+        // };
+        var callback = function (data) {
+        alert(data);  
+            console.log(JSON.stringify(data));  //callback回傳皆為JSON格式
+            //$access_token=data.me_profile.access_token;
+            //alert($access_token);
+            // $getOpenidUrl = 'https://stgapi.beanfun.com/v1/openid/token/verification?token='+$access_token;
+            // checkUser();
+        };
+        /*舉個例子：(請參考"開啟beanfun! APP QRcode頁面")
+        var style = {  //beanfun! APP QRcode 頁面可客制化的部份(目前僅支援Android客製化)
+            'title': '我是標題',
+            'color': 'DB440C'
+        }
+        BGO.scan_qr_code(style, callback);*/
+    })
 
     function get_openid_access_token() {
 
@@ -337,7 +337,10 @@ function AcceptWord(){
     var callback = function (data) { 
         console.log(data); 
 
-        getOpenidUrl = 'https://stg-api.beanfun.com/v1/openid/token/verification?token=${data.access_token}';
+        //getOpenidUrl = 'https://stg-api.beanfun.com/v1/openid/token/verification?token=${data.access_token}';
+
+        getOpenidUrl = 'https://stg-api.beanfun.com/v1/official_account/7310917e39724f4d8c6bc9bfb0dcf6a6_oa/token?secret=2b92531a580843f898729919143cdc50_oas&v=2.0';
+        //e0a2c8fdeaa247a083189421be0c0e74_oat
         //e0a2c8fdeaa247a083189421be0c0e74_oat
         checkUser(); 
     };

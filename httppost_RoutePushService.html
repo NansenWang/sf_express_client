@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>順豐接口</title>
+        <link rel="stylesheet" href="template/style/common.css" media="screen"/>
+        <script type="text/javascript" src="template/js/jquery.js"></script>
+        <script type="text/javascript" src="template/js/httppost.js"></script>
+
+                
+    </head>
+
+    <body oncontextmenu="return false" onDragStart="return false" onSelectStart="return false">
+        <p id="res"></p>
+
+        <div id="loadbox">
+            <div id="loadboxer">
+                <div id="load_ico">
+                    <div id="load_icoimg"><img src="template/images/loading.gif" width="100%" height="100%" /></div>
+                </div>
+                <div id="load_content">
+                    正在傳遞信息
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="testtitle">順豐接口</div>
+
+
+             <div class="testbox">
+                <div class="que_title"><span>路由推送（RoutePushService）</span></div>
+                <div class="que_content">
+                    <table width="100%">
+                        <tr>
+                            <td align="right" width="80px"><b>節點信息編號：</b></td>
+                            <td><input type="input" id="route_msg_id" value="" class="inputstyle" /></td>                            
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>運單號：</b></td>
+                            <td><input type="input" id="mailno" value="" class="inputstyle" /></td>
+                        </tr>
+
+                        <tr>
+                            <td align="right" width="80px"><b>訂單號：</b></td>
+                            <td><input type="input" id="orderid" value="" class="inputstyle" /></td>
+                        </tr>
+
+                        <tr>
+                            <td align="right" width="80px"><b>節點產生時間：</b></td>
+                            <td><input type="input" id="acceptTime" value="" class="inputstyle" /></td>
+                        </tr>
+
+                        <tr>
+                            <td align="right" width="80px"><b>節點發生城市：</b></td>
+                            <td><input type="input" id="acceptAddress" value="" class="inputstyle" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>節點具体描述：</b></td>
+                            <td><input type="input" id="remark" value="" class="inputstyle" /></td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>節點操作碼：</b></td>
+                            <td><input type="input" id="opCode" value="" class="inputstyle" /></td>
+                        </tr>
+
+
+                        <tr>
+                            <td align="right" width="80px"><b>數據格式：</b></td>
+                            <td height="20" colspan="2">
+                                <select class="inputstyle" id="RoutePushService_Mode">
+                                    <option value="XML" selected="true">XML</option>
+                                    <option value="JSON">JSON</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" class="btn" value="確定" onclick="RoutePushService();" /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="que_ant">回饋結果：</div>
+                <div class="que_ans" id="RoutePushService_ANS"></div>
+            </div> 
+
+
+ 
+
+
+
+
+
+
+
+ 
+        </div>
+    </body>
+
+
+<script language="javascript">
+
+</script>
+
+</html>

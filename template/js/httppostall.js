@@ -1,10 +1,8 @@
-    var ajax_url = "/sf_express_accept/ajax_httppost.php";
+    var ajax_url = "/sf_express_accept/ajax_httppostall.php";
     function OrderService(){
         var chkrlt=AcceptWord();
         var Asendstarttime=$("#sendstarttime").val();
-        var c_name1,c_count1,c_unit1,c_weight1,c_amount1,c_currency1,c_source_area1;
-        var c_name2,c_count2,c_unit2,c_weight2,c_amount2,c_currency2,c_source_area2;
-        var c_name=[],c_count=[],c_unit=[],c_weight=[],c_amount=[],c_currency=[],c_source_area=[];
+        var c_name,c_count,c_unit,c_weight,c_amount,c_currency,source_area;
         var c_product_record_no,c_good_prepard_no,c_tax_no,c_hs_code,c_manufacturer;
         var c_state_bar_code,c_product_category,c_productname_element;
         var c_production_marketincity,c_box_number,c_volume,c_item_no;
@@ -16,35 +14,29 @@
         }else{  
 
             $('input[name="name"]').each(function(){
-                 c_name.push($(this).val());
+                c_name = $(this).val();
             });
-
 
             $('input[name="count"]').each(function(){
-                c_count.push($(this).val());
+                c_count = $(this).val();
             });
 
-
             $('input[name="unit"]').each(function(){
-                c_unit.push($(this).val());
+                c_unit = $(this).val();
             });
 
             $('input[name="weight"]').each(function(){
-                c_weight.push($(this).val());
+                c_weight = $(this).val();
             });
             $('input[name="amount"]').each(function(){
-                c_amount.push($(this).val());
+                c_amount = $(this).val();
             });
-
-            $('select[name="currency"]').each(function(){
-                c_currency.push($(this).val());
-            });    
-                
-
+            $('input[name="currency"]').each(function(){
+                c_currency = $(this).val();
+            });
             $('input[name="source_area"]').each(function(){
-                c_source_area.push($(this).val());
+                c_source_area = $(this).val();
             });
-
             $('input[name="product_record_no"]').each(function(){
                 c_product_record_no = $(this).val();
             });
@@ -100,7 +92,7 @@
             } 
 
 
-
+          
             $.ajax({
                 url:ajax_url,
                 type:"POST",
@@ -117,12 +109,14 @@
                     j_tel:$("#j_tel").val(),
                     j_province:$("#j_province").val(),
                     j_city:$("#j_city").val(),
+                    j_qu:$("#j_qu").val(),
                     j_address:$("#j_address").val(),
                     d_company:$("#d_company").val(),
                     d_contact:$("#d_contact").val(),
                     d_tel:$("#d_tel").val(),
                     d_province:$("#d_province").val(),
                     d_city:$("#d_city").val(),
+                    d_qu:$("#d_qu").val(),
                     d_address:$("#d_address").val(),
                     pay_method:$("#pay_method").val(),
                     custid:$("#custid").val(),
