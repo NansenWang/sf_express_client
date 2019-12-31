@@ -26,6 +26,7 @@
         </div>
         <div class="main">
             <div class="testtitle">順豐接口</div>
+
                 <table><tr><td>接入碼：<input type="input" id="clientCode" name="clientCode" value="" class="inputstyle"></td></tr>
                 <tr><td>檢驗碼：<input type="input" id="checkword" name="checkword" value="" class="inputstyle" maxlength="32" size="35">32碼</td></tr>
                 </table>
@@ -39,11 +40,13 @@
                             <td><input type="input" id="orderid" value="" class="inputstyle" /></td>
                         </tr>
                         <tr>
+
                             <td align="right" width="80px"><b>運單號：</b></td>
                             <td><input type="input" id="mailno" value="" class="inputstyle" />(預給號必填)</td>
                         </tr>
                         
                         <tr>
+
                             <td align="right" width="80px"><b>快件類型：</b></td>
                             <td>
                                 <select class="inputstyle" id="express_type">
@@ -294,6 +297,7 @@ function AcceptWord(){
 
 
     if (checkword.length!=32){
+
         return 0;
     }else{
         return 1;

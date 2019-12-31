@@ -1,4 +1,4 @@
-    var ajax_url = "http://192.168.245.129/sf_express_client/RoutePushService.php";
+    var ajax_url = "https://bsp-api.sf-express.com.tw/sf_express_accept/ajax_httppost.php";
     function OrderService(){
         var chkrlt=AcceptWord();
         if (chkrlt==0){
@@ -135,38 +135,3 @@
         }    
     }
 
-    function RoutePushService(){
-        // var chkrlt=AcceptWord();
-        // if (chkrlt==0){
-        //     alert("接入編碼或檢驗碼錯誤!");
-        // }else{ 
-            $.ajax({
-                url:ajax_url,
-                type:"POST",
-                dataType:"text",
-                beforeSend :function(){
-                    $("#loadbox").show();
-                },
-                data:{
-                    action:"RoutePushService",
-                    route_msg_id:$("#route_msg_id").val(),
-                    mailno:$("#mailno").val(),
-                    orderid:$("#orderid").val(),
-                    acceptTime:$("#acceptTime").val(),
-                    acceptAddress:$("#acceptAddress").val(),
-                    remark:$("#remark").val(),
-                    opCode:$("#opCode").val(),
-                    // clientCode:$("#clientCode").val(),
-                    // checkword:$("#checkword").val(),
-                    RouteService_Mode:$("#RoutePushService_Mode").val()
-                },
-                success:function(exe){
-                    $("#loadbox").hide();
-                    $("#RoutePushService_ANS").html(exe);
-                }
-            });
-
-
-
-        // }        
-    }
