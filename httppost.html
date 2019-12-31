@@ -26,7 +26,7 @@
         </div>
         <div class="main">
             <div class="testtitle">順豐接口</div>
-                <table><tr><td>接入碼：<input type="input" id="clientCode" name="clientCode" value="" class="inputstyle" maxlength="4">4碼</td></tr>
+                <table><tr><td>接入碼：<input type="input" id="clientCode" name="clientCode" value="" class="inputstyle"></td></tr>
                 <tr><td>檢驗碼：<input type="input" id="checkword" name="checkword" value="" class="inputstyle" maxlength="32" size="35">32碼</td></tr>
                 </table>
             <div class="testbox">
@@ -38,6 +38,11 @@
                             <td align="right" width="80px"><b>訂單號：</b></td>
                             <td><input type="input" id="orderid" value="" class="inputstyle" /></td>
                         </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>運單號：</b></td>
+                            <td><input type="input" id="mailno" value="" class="inputstyle" />(預給號必填)</td>
+                        </tr>
+                        
                         <tr>
                             <td align="right" width="80px"><b>快件類型：</b></td>
                             <td>
@@ -69,7 +74,7 @@
                             <td>
                                 <input type="input" id="j_province" style="width:60px" value="" class="inputstyle" />
                                 <input type="input" id="j_city" style="width:60px" value="" class="inputstyle" />
-                                <input type="input" id="j_qu" style="width:60px" value="" class="inputstyle" />
+                                <input type="input" id="j_county" style="width:60px" value="" class="inputstyle" />
                             </td>
                         </tr>
                         <tr>
@@ -96,7 +101,7 @@
                             <td>
                                 <input type="input" id="d_province" style="width:60px" value="" class="inputstyle" />
                                 <input type="input" id="d_city" style="width:60px" value="" class="inputstyle" />
-                                <input type="input" id="d_qu" style="width:60px" value="" class="inputstyle" />
+                                <input type="input" id="d_county" style="width:60px" value="" class="inputstyle" />
                             </td>
                         </tr>
                         <tr>
@@ -288,7 +293,7 @@ function AcceptWord(){
     var checkword=$("#checkword").val();
 
 
-    if ((clientCode.length!=4)||(checkword.length!=32)){
+    if (checkword.length!=32){
         return 0;
     }else{
         return 1;

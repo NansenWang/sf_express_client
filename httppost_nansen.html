@@ -38,6 +38,11 @@
                             <td><input type="input" id="orderid" value="" class="inputstyle" /></td>
                         </tr>
                         <tr>
+                            <td align="right" width="80px"><b>運單號：</b></td>
+                            <td><input type="input" id="mailno" value="" class="inputstyle" />(預給號必填)</td>
+                        </tr>
+                        
+                        <tr>
                             <td align="right" width="80px"><b>快件類型：</b></td>
                             <td>
                                 <select class="inputstyle" id="express_type">
@@ -289,7 +294,7 @@ function AcceptWord(){
     var checkword=$("#checkword").val();
 
 
-    if ((clientCode.length!=4)||(checkword.length!=32)){
+    if (checkword.length!=32){
         return 0;
     }else{
         return 1;
