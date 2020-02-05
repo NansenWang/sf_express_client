@@ -19,7 +19,7 @@
             }            
         </style>
         <script type="text/javascript" src="template/js/jquery.js"></script>
-        <script type="text/javascript" src="template/js/httppost.js"></script>
+        <script type="text/javascript" src="template/js/httppostall.js"></script>
          <script type="text/javascript"  src="template/js/bootstrap-datetimepicker.js"></script>
 
              
@@ -264,6 +264,11 @@
                             <td><input type="input" id="declared_value" style="width:240px" value="100.00" class="inputstyle" /></td>
                         </tr>
                         <tr>
+                            <td align="right" width="80px"><b>保價：</b></td>
+                            <td><input type="input" id="INSURE" style="width:240px" value="" class="inputstyle" /></td>
+                        </tr>
+
+                        <tr>
                             <td align="right" width="80px"><b>幣別：</b></td>
                             <td>
                                 <select id="declared_value_currency">
@@ -393,6 +398,7 @@
                             <td align="right" width="80px"><b>業務模板編碼：</b></td>
                             <td><input type="input" id="template" style="width:240px" value="" class="inputstyle" /></td>
                         </tr>  -->
+                         <input type="hidden" id="template" style="width:240px" value="預分配下單" class="inputstyle" />
                         <tr>
                             <td align="right" width="80px"><b>備註：</b></td>
                             <td><input type="input" id="remark" style="width:240px" value="精密儀器，小心輕拿輕放~" class="inputstyle" /></td>

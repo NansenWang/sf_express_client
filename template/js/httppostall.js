@@ -1,4 +1,4 @@
-    var ajax_url = "/sf_express_accept/ajax_httppostall.php";
+    var ajax_url = "/sf_express_accept/ajax_httppost_template.php";
     function OrderService(){
         var chkrlt=AcceptWord();
         var Asendstarttime=$("#sendstarttime").val();

@@ -169,7 +169,7 @@
                             </td>
                         </tr>                        
 
-
+ <input type="hidden" id="template" style="width:240px" value="預分配下單" class="inputstyle" />
                         <tr>
                             <td align="right" width="80px"><b>備註：</b></td>
                             <td><input type="input" id="remark" style="width:240px" value="精密儀器，小心輕拿輕放~" class="inputstyle" /></td>
@@ -195,7 +195,61 @@
                 <div class="que_ant">回饋結果：</div>
                 <div class="que_ans" id="OrderService_ANS"></div>
             </div>
- <div class="testbox">
+            <div class="testbox">
+                <div class="que_title"><span>路由查询（RouteService）</span></div>
+                <div class="que_content">
+                    <table width="100%">
+                        <tr>
+                            <td align="right" width="80px"><b>查詢號類别：</b></td>
+                            <td>
+                                <select id="tracking_type" class="inputstyle">
+                                    <option value="1">順豐運單號</option>
+                                    <option value="2">客戶訂單號</option>
+                                    <!--option value="3">逆向單原始訂單號</option--> 
+                                </select>    
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td align="right" width="80px"><b>依查詢號類别輸入單號</b></td>
+                            <td><input type="input" id="tracking_number" value="" class="inputstyle" /></td>
+                        </tr>
+
+                        <tr>
+                            <td align="right" width="80px"><b>路由查詢類别：</b></td>
+                            <td>
+                            <select id="method_type" class="inputstyle">
+                                <option value="1">標準路由</option>
+                                <option value="2">定制路由</option>
+                            </select>    
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>參考編碼</b></td>
+                            <td><input type="input" id="reference_number" value="" class="inputstyle" placeholder="僅供亞馬遜客戶填寫" /></td>
+                        </tr>
+
+                        <tr>
+                            <td align="right" width="80px"><b>數據格式：</b></td>
+                            <td height="20" colspan="2">
+                                <select class="inputstyle" id="RouteService_Mode">
+                                    <option value="XML" selected="true">XML</option>
+                                    <option value="JSON">JSON</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="button" class="btn" value="確定" onclick="RouteService();" /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="que_ant">回饋結果：</div>
+                <div class="que_ans" id="RouteService_ANS"></div>
+            </div>
+
+
+
+<!--        <div class="testbox">
                 <div class="que_title"><span>路由查询（RouteService）</span></div>
                 <div class="que_content">
                     <table width="100%">
@@ -219,7 +273,7 @@
                 </div>
                 <div class="que_ant">回饋結果：</div>
                 <div class="que_ans" id="RouteService_ANS"></div>
-            </div>
+            </div> -->
 
 <!--             <div class="testbox">
                 <div class="que_title"><span>路由推送（RoutePushService）</span></div>
