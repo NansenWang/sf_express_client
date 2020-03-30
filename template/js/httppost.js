@@ -10,11 +10,12 @@
         var c_state_bar_code,c_product_category,c_productname_element;
         var c_production_marketincity,c_box_number,c_volume,c_item_no;
         var c_qty1,c_qty2,c_unit1,c_unit2;
+        var routelabelForReturn,routelabelService;
 
 
         if (chkrlt==0){
             alert("接入編碼或檢驗碼錯誤!!");
-        }else{  
+        }else{ 
 
             $('input[name="name"]').each(function(){
                  c_name.push($(this).val());
@@ -223,6 +224,9 @@
                     qty2:c_qty2,
                     unit1:c_unit1,
                     unit2:c_unit2,
+                    routelabelForReturn:$('#routelabelForReturn').val(),
+                    routelabelService:$('#routelabelService').val(),
+                    
                     OrderService_Mode:$("#OrderService_Mode").val()
  
                 },
