@@ -1,15 +1,17 @@
   //var ajax_url = "/sf_express_accept/ajax_httppost.php";
   //var ajax_url = "https://bsp-dev-api.sf-express.com.tw/sf_express_accept/ajax_httppost.php";
-   //var ajax_url = "http://192.168.245.129/sf_customers/api/ajax_httppost";
-//var ajax_url ="http://192.168.245.129/sf_express_accept/ajax_httppost_iuop.php";
+   //var ajax_url = "http://192.168.150.128/sf_customers/api/ajax_httppost";
+//var ajax_url ="http://192.168.150.128/sf_express_accept/ajax_httppost_iuop.php";
    //var ajax_url ="https://bsp-dev-api.sf-express.com.tw/sf_express_accept/ajax_httppost_iuop.php";
    //var ajax_url = "https://mainuser.sf-express.com.tw/sf_maincustomer/api/ajax_httppost";
    //
    
-   var ajax_url = "http://192.168.245.129/sf_maincustomer/api/ajax_httppost";
-
+   var ajax_url = "http://develop/sf_maincustomer/api/ajax_httppost";
+//192.168.150.128
 
     function OrderService(){
+
+
 
         var chkrlt=AcceptWord();
         var Asendstarttime=$("#sendstarttime").val();
@@ -144,7 +146,6 @@
                     payMethod:$("#payMethod").val(),
                     custid:$("#custid").val(),
                     daishou:$("#daishou").val(),
-                    commodityName: $("#commodityName").val(),
                     parcelNum:$("#parcelNum").val(),
                     remark:$("#remark").val(),
                     clientCode:$("#clientCode").val(),
@@ -239,8 +240,8 @@
                     qty2:c_qty2,
                     unit1:c_unit1,
                     unit2:c_unit2,
-                    routelabelForReturn:$('#routelabelForReturn').val(),
-                    routelabelService:$('#routelabelService').val(),
+                    routelabelForReturn:$("#routelabelForReturn").val(),
+                    routelabelService:$("#routelabelService").val(),
                     
                     OrderService_Mode:$("#OrderService_Mode").val()
  

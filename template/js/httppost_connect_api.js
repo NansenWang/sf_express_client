@@ -1,11 +1,11 @@
-    var ajax_url = "http://192.168.245.129/sf_maincustomer/api/ajax_httppost";
-
+    var ajax_url = "http://develop/sf_maincustomer/api/ajax_httppost";
+    //var ajax_url = "http://192.168.150.128/sf_express_accept/ajax_httppost.php";
     function OrderService(){
         var chkrlt=AcceptWord();
         var Asendstarttime=$("#sendstarttime").val();
         var c_name1,c_count1,c_unit1,c_weight1,c_amount1,c_currency1,c_source_area1;
         var c_name2,c_count2,c_unit2,c_weight2,c_amount2,c_currency2,c_source_area2;
-        var c_name=[],c_count=[],c_unit=[],c_weight=[],c_amount=[],c_currency=[],c_source_area=[];
+        var c_name=[],c_count=[],c_unit=[],c_weight=[],c_amount=[],c_currency=[],c_source_area=[],c_parcel_quantity=[];
         var c_product_record_no,c_good_prepard_no,c_tax_no,c_hs_code,c_manufacturer;
         var c_state_bar_code,c_product_category,c_productname_element;
         var c_production_marketincity,c_box_number,c_volume,c_item_no;
@@ -20,7 +20,6 @@
             $('input[name="name"]').each(function(){
                  c_name.push($(this).val());
             });
-
 
             $('input[name="count"]').each(function(){
                 c_count.push($(this).val());
@@ -129,8 +128,8 @@
                     pay_method:$("#pay_method").val(),
                     custid:$("#custid").val(),
                     daishou:$("#daishou").val(),
-                    things: $("#things").val(),
-                    things_num:$("#things_num").val(),
+                    parcel_quantity:$("#parcel_quantity").val(),
+
                     remark:$("#remark").val(),
                     clientCode:$("#clientCode").val(),
                     checkword:$("#checkword").val(),
@@ -177,7 +176,7 @@
                     template:$("#template").val(),
                     oneself_pickup_flg:$("#oneself_pickup_flg").val(),
                     dispatch_sys:$("#dispatch_sys").val(),
-                    parcel_quantity:$("#parcel_quantity").val(),
+
                     is_gen_eletric_pic:$("#is_gen_eletric_pic").val(),
                     waybill_size:$("#waybill_size").val(),
                     filter_field:$("#filter_field").val(),

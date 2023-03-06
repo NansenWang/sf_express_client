@@ -7,7 +7,7 @@
         <title>順豐接口</title>
         <link rel="stylesheet" href="template/style/common.css" media="screen"/>
         <script type="text/javascript" src="template/js/jquery.js"></script>
-        <script type="text/javascript" src="template/js/httppost.js"></script>
+        <script type="text/javascript" src="template/js/httppost_connect_api.js"></script>
                 
     </head>
 
@@ -27,8 +27,8 @@
         <div class="main">
             <div class="testtitle">順豐接口</div>
 
-                <table><tr><td>接入碼：<input type="input" id="clientCode" name="clientCode" value="" class="inputstyle"></td></tr>
-                <tr><td>檢驗碼：<input type="input" id="checkword" name="checkword" value="" class="inputstyle" maxlength="32" size="35">32碼</td></tr>
+                <table><tr><td>接入碼：<input type="input" id="clientCode" name="clientCode" value="X4K1" class="inputstyle"></td></tr>
+                <tr><td>檢驗碼：<input type="input" id="checkword" name="checkword" value="L0uPZVyaSw5Edmnj8r7ihftxC2Gkoqb9" class="inputstyle" maxlength="32" size="35">32碼</td></tr>
                 </table>
             <div class="testbox">
                 <div class="que_title"><span>下訂單接口（OrderService）</span></div>
@@ -136,11 +136,11 @@
                         </tr>
                         <tr>
                             <td align="right" width="80px"><b>物品：</b></td>
-                            <td><input type="input" id="things" style="width:240px" value="" class="inputstyle" /></td>
+                            <td><input type="input" id="name" name="name" style="width:240px" value="" class="inputstyle" /></td>
                         </tr>
                         <tr>
                             <td align="right" width="80px"><b>數量：</b></td>
-                            <td><input type="input" id="things_num" style="width:240px" value="1" class="inputstyle" /></td>
+                            <td><input type="input" id="parcel_quantity" style="width:240px" value="1" class="inputstyle" /></td>
                         </tr>
                         <tr>
                             <td align="right" width="80px"><b>申明價值：</b></td>
@@ -174,6 +174,16 @@
                             <td align="right" width="80px"><b>備註：</b></td>
                             <td><input type="input" id="remark" style="width:240px" value="精密儀器，小心輕拿輕放~" class="inputstyle" /></td>
                         </tr>
+
+                        <input type="hidden" name="unit" value="台">
+                        <input type="hidden" name="amount" value="100">
+                        <input type="hidden" name="count" value="50">
+                        <input type="hidden" name="source_area" value="TW">
+                        
+                        
+
+
+
                         <tr>
                             <td height="20" colspan="2"></td>
                         </tr>
@@ -230,6 +240,12 @@
                         </tr>
 
                         <tr>
+                            <td align="right" width="80px"><b>電話號碼後4位驗證</b></td>
+                            <td><input type="input" id="check_phoneNo" value="" class="inputstyle" placeholder="2489,5629,5673,2675" />多個時用逗號分隔</td>
+                        </tr>
+
+
+                        <tr>
                             <td align="right" width="80px"><b>數據格式：</b></td>
                             <td height="20" colspan="2">
                                 <select class="inputstyle" id="RouteService_Mode">
@@ -284,6 +300,36 @@
                 <div class="que_ant">回饋結果：</div>
                 <div class="que_ans" id="OrderSearchService_ANS"></div>
             </div>
+
+          <div class="testbox">
+            <div class="que_title"><span>退貨銷單（OrderRvsCancelService）</span></div>
+            <div class="que_content">
+                <table width="100%">
+                <tr>
+                    <td align="right" width="80px"><b>訂單號</b></td>
+                    <td><input type="input" id="cancel_orderid" value="" class="inputstyle" /></td>
+                </tr>
+                <tr>
+                    <td align="right" width="80px"><b>數據格式：</b></td>
+                    <td height="20" colspan="2">
+                        <select class="inputstyle" id="OrderRvsCancelService_Mode">
+                            <option value="XML" selected="true">XML</option>
+                            <option value="JSON">JSON</option>
+                        </select>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td><input type="button" class="btn" value="確定" onclick="OrderRvsCancelService();" /></td>
+                </tr>
+                </table>
+            </div>
+            <div class="que_ant">回饋結果：</div>
+            <div class="que_ans" id="OrderRvsCancelService_ANS"></div>
+        </div> 
+
+
         </div>
     </body>
 
