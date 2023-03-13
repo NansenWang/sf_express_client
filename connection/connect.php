@@ -6,7 +6,7 @@
  // $conPassword="sls_user@233";
 
 
-// $conIP="192.168.245.129";
+// $conIP="192.168.150.128";
 // $conDB="homestead";
 // $conUsername="homestead";
 // $conPassword="secret";

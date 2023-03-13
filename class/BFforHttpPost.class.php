@@ -15,7 +15,7 @@ class BFapi {
         $this->_IP=$_SESSION['ip'];
         switch ($this->_IP) {
             //Develop & test
-            case ($this->_IP=="192.168.245.129" || $this->_IP=="10.66.10.108" || $this->_IP=="219.87.80.21"):
+            case ($this->_IP=="192.168.150.128" || $this->_IP=="10.66.10.108" || $this->_IP=="219.87.80.21"):
 
                $this->_getOpenidUrl ='https://stgapi.beanfun.com/v1/openid/token/verification?token='.$official_account_access_token; 
                break;

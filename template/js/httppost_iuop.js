@@ -4,14 +4,33 @@
 //var ajax_url ="http://192.168.150.128/sf_express_accept/ajax_httppost_iuop.php";
    //var ajax_url ="https://bsp-dev-api.sf-express.com.tw/sf_express_accept/ajax_httppost_iuop.php";
    //var ajax_url = "https://mainuser.sf-express.com.tw/sf_maincustomer/api/ajax_httppost";
-   //
    
-   var ajax_url = "http://develop/sf_maincustomer/api/ajax_httppost";
-//192.168.150.128
+
+
+
+
 
     function OrderService(){
 
-
+        var ip = $('#IP').val();
+        var ajax_url='';
+        
+        switch (ip){
+            //develop
+            case '192.168.150.128' :
+               ajax_url = 'http://develop/sf_maincustomer/api/ajax_httppost';
+               break;
+            //product   
+            case '10.66.0.96':
+            case '10.66.0.97':
+            case '10.66.0.98':
+                ajax_url = 'http://mainuser.sf-express.com.tw/sf_maincustomer/api/ajax_httppost';
+                break;
+            default: 
+                //UAT測試機    
+                ajax_url = 'http://'+ip+'/sf_maincustomer/api/ajax_httppost';
+                break;
+        }
 
         var chkrlt=AcceptWord();
         var Asendstarttime=$("#sendstarttime").val();

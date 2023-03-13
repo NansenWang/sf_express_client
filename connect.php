@@ -13,7 +13,7 @@
 // $conUsername="sftw_bspdev";
 // $conPassword="sftw_bspdev@sftw";
 
-// $conIP="192.168.245.129";
+// $conIP="192.168.150.128";
 // $conDB="homestead";
 // $conUsername="homestead";
 // $conPassword="secret";

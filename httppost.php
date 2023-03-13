@@ -10,7 +10,6 @@ define('_ROOT', str_replace("\\", '/', dirname(__FILE__)));
 
 require_once (_ROOT."/class/BFforHttpPost.class.php");
 
-
 ?>
 
 
