@@ -1,7 +1,14 @@
-  var ajax_url = "/sf_express_accept/ajax_httppost.php";
-  //var ajax_url = "https://bsp-api.sf-express.com.tw/sf_express_accept/ajax_httppost.php";
+  var ajax_url = "http://192.168.150.128/sf_maincustomer/api/ajax_httppost";
+
+  // var ajax_url = "/sf_express_accept/ajax_httppost.php";
+  // var ajax_url = "https://bsp-api.sf-express.com.tw/sf_express_accept/ajax_httppost.php";
+  
+
+
+  
     function OrderService(){
         var chkrlt=AcceptWord();
+
         var Asendstarttime=$("#sendstarttime").val();
         var c_name1,c_count1,c_unit1,c_weight1,c_amount1,c_currency1,c_source_area1;
         var c_name2,c_count2,c_unit2,c_weight2,c_amount2,c_currency2,c_source_area2;
@@ -13,8 +20,8 @@
         var routelabelForReturn,routelabelService;
 
 
-        if (chkrlt==0){
-            alert("接入編碼或檢驗碼錯誤!!");
+        if (chkrlt===0){
+            alert("接入編碼或檢驗碼錯誤!!~");
         }else{ 
 
             $('input[name="name"]').each(function(){
@@ -240,7 +247,7 @@
     }
     function RouteService(){
         var chkrlt=AcceptWord();
-        if (chkrlt==0){
+        if (chkrlt===0){
             alert("接入編碼或檢驗碼錯誤!");
         }else{ 
             $.ajax({
@@ -258,6 +265,7 @@
                     reference_number:$("#reference_number").val(),
                     clientCode:$("#clientCode").val(),
                     checkword:$("#checkword").val(),
+                    check_phoneNo:$("#check_phoneNo").val(),
                     RouteService_Mode:$("#RouteService_Mode").val()
                 },
                 success:function(exe){
@@ -270,7 +278,7 @@
 
     function OrderSearchService(){
         var chkrlt=AcceptWord();
-        if (chkrlt==0){
+        if (chkrlt===0){
             alert("接入編碼或檢驗碼錯誤!");
         }else{ 
             $.ajax({
@@ -300,7 +308,7 @@
 
     function OrderRvsCancelService(){
         var chkrlt=AcceptWord();
-        if (chkrlt==0){
+        if (chkrlt===0){
             alert("接入編碼或檢驗碼錯誤!");
         }else{ 
 

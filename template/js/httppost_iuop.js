@@ -18,7 +18,8 @@
         switch (ip){
             //develop
             case '192.168.150.128' :
-               ajax_url = 'http://develop/sf_maincustomer/api/ajax_httppost';
+               //ajax_url = 'http://develop/sf_maincustomer/api/ajax_httppost';
+               ajax_url = 'https://bsp-dev-api.sf-express.com.tw/sf_maincustomer/api/ajax_httppost';
                break;
             //product   
             case '10.66.0.96':

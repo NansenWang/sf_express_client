@@ -1,4 +1,6 @@
-    var ajax_url = "http://develop/sf_maincustomer/api/ajax_httppost";
+    
+    var ajax_url = "https://bsp-dev-api.sf-express.com.tw/sf_maincustomer/api/ajax_httppost";
+    //var ajax_url = "http://develop/sf_maincustomer/api/ajax_httppost";
     //var ajax_url = "http://192.168.150.128/sf_express_accept/ajax_httppost.php";
     function OrderService(){
         var chkrlt=AcceptWord();
