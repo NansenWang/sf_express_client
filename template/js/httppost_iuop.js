@@ -25,11 +25,11 @@
             case '10.66.0.96':
             case '10.66.0.97':
             case '10.66.0.98':
-                ajax_url = 'http://mainuser.sf-express.com.tw/sf_maincustomer/api/ajax_httppost';
+                ajax_url = 'https://mainuser.sf-express.com.tw/sf_maincustomer/api/ajax_httppost';
                 break;
             default: 
                 //UAT測試機    
-                ajax_url = 'http://'+ip+'/sf_maincustomer/api/ajax_httppost';
+                ajax_url = 'https://'+ip+'/sf_maincustomer/api/ajax_httppost';
                 break;
         }
 
