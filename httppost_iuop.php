@@ -26,9 +26,9 @@
         <div class="main">
             <div class="testtitle">順豐接口</div>
                 <!-- value="4MKj3nt17uQ_Xb" -->
-                <table><tr><td>接入碼：<input type="input" id="clientCode" name="clientCode" value="X4K1" class="inputstyle"></td></tr>
+                <table><tr><td>接入碼：<input type="input" id="clientCode" name="clientCode" value="" class="inputstyle"></td></tr>
                     <!-- value="u9mGVb0jwPyCZSk7Eho8iqtna2f5xdLr" -->
-                <tr><td>檢驗碼：<input type="input" id="checkword" name="checkword" value="L0uPZVyaSw5Edmnj8r7ihftxC2Gkoqb9" class="inputstyle" maxlength="32" size="35">32碼</td></tr>
+                <tr><td>檢驗碼：<input type="input" id="checkword" name="checkword" value="" class="inputstyle" maxlength="32" size="35">32碼</td></tr>
                 </table>
             <div class="testbox">
                 <div class="que_title"><span>下訂單接口（OrderService）</span></div>
