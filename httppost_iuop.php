@@ -307,10 +307,26 @@
                             <td align="right" width="80px"><b>件數：</b></td>
                             <td><input type="input" id="parcelNum" style="width:240px" value="1" class="inputstyle" /></td>
                         </tr>
-                        <input type="hidden" name="unit" value="台">
-                        <input type="hidden" name="amount" value="100">
-                        <input type="hidden" name="originCountry" value="TW">
-                        <input type="hidden" name="commodityNum" value="10">
+                        <tr>
+                            <td align="right" width="80px"><b>商品單位：</b></td>
+                            <td><input type="text" name="unit" value="台"  class="inputstyle"></td>
+                        </tr>    
+
+                        <tr>
+                            <td align="right" width="80px"><b>商品單價：</b></td>
+                            <td><input type="text" name="amount" value="100" class="inputstyle"></td>
+                        </tr>    
+
+                        <tr>
+                            <td align="right" width="80px"><b>原產地：</b></td>
+                            <td><input type="text" name="originCountry" value="TW" class="inputstyle"></td>
+                        </tr>    
+                        <tr>
+                            <td align="right" width="80px"><b>商品數量：</b></td>
+                            <td> <input type="text" name="commodityNum" value="10" class="inputstyle"></td>
+                        </tr>    
+
+
                         <tr>
                             <td align="right" width="80px"><b>總重：</b></td>
                             <td><input type="input" id="cargo_total_weight" style="width:60px" value="1" class="inputstyle" />kg</td>
