@@ -154,7 +154,7 @@
                         </tr>
                         <tr>
                             <td align="right" width="80px"><b>寄件郵遞區號:</b></td>
-                            <td><input type="input" id="j_post_code" name="j_post_code" class="inputstyle" onkeyup="value=value.replace(/[^\d]/g,'')" maxlength="5" value="10508" />
+                            <td><input type="input" id="j_post_code" name="j_post_code" class="inputstyle" onkeyup="value=value.replace(/[^\d]/g,'')" maxlength="5" value="" />
                         </tr>
                         <tr>
                             <td align="right" width="80px"><b>寄件方公司：</b></td>
