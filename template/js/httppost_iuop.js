@@ -10,11 +10,12 @@
 
 
 
-    function OrderService(){
+    function order(){
+
 
         var ip = $('#IP').val();
         var ajax_url='';
-        
+
         switch (ip){
 
             //develop
@@ -150,7 +151,7 @@
                     $("#loadbox").show();
                 },
                 data:{
-                    action:"OrderService",
+                    action:"order",
                     importDeclarationMethod:$('#importDeclarationMethod').val(),
                     exportDeclarationMethod:$('#exportDeclarationMethod').val(),
                     customerOrderNo:$("#customerOrderNo").val(),
@@ -281,6 +282,35 @@
 
     }
     function RouteService(){
+
+        var ip = $('#IP').val();
+        var ajax_url='';
+        
+        switch (ip){
+
+            //develop
+            case '192.168.150.128' :
+               ajax_url = 'http://develop/sf_maincustomer/api/route_service';
+
+               break;
+               
+            //test
+            case '10.66.10.108':
+               ajax_url = 'https://bsp-dev-api.sf-express.com.tw/sf_maincustomer/api/route_service';
+               break;
+
+            //product   
+            case '10.66.0.96':
+            case '10.66.0.97':
+            case '10.66.0.98':
+                ajax_url = 'https://mainuser.sf-express.com.tw/sf_maincustomer/api/route_service';
+                break;
+            default: 
+                //UAT測試機    
+                ajax_url = 'https://'+ip+'/sf_maincustomer/api/route_service';
+                break;
+        }
+
         var chkrlt=AcceptWord();
         if (chkrlt==0){
             alert("接入編碼或檢驗碼錯誤!");

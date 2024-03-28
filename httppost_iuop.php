@@ -377,7 +377,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <input type="button" class="btn" value="確定" onclick="OrderService();" />
+                                <input type="button" class="btn" value="確定" onclick="order();" />
                                 <input type="hidden" id="IP" name="IP" value="<?php echo $_SERVER['SERVER_ADDR']; ?>">　
 
                             </td>
@@ -439,8 +439,8 @@
                 </div>
                 <div class="que_ant">回饋結果：</div>
                 <div class="que_ans" id="RouteService_ANS"></div>
-            </div> -->
-
+            </div>
+ -->
 <!--             <div class="testbox">
                 <div class="que_title"><span>訂單查询（OrderSearchService）</span></div>
                 <div class="que_content">
