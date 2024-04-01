@@ -31,7 +31,7 @@
                 <tr><td>檢驗碼：<input type="input" id="checkword" name="checkword" value="" class="inputstyle" maxlength="32" size="35">32碼</td></tr>
                 </table>
             <div class="testbox">
-                <div class="que_title"><span>下訂單接口（OrderService）</span></div>
+                <div class="que_title"><span>下訂單接口（order）</span></div>
 
                 <div class="que_content">
                     <table width="100%">
@@ -164,6 +164,12 @@
                             <td align="right" width="80px"><b>寄件方姓名：</b></td>
                             <td><input type="input" id="j_contact" value="" class="inputstyle" /></td>
                         </tr>
+
+                        <tr>
+                            <td align="right" width="80px"><b>寄件方Email：</b></td>
+                            <td><input type="input" id="j_email" value="" class="inputstyle" /></td>
+                        </tr>
+
                         <tr>
                             <td align="right" width="80px"><b>寄件方電話：</b></td>
                             <td><input type="input" id="j_tel" value="" class="inputstyle" /></td>
@@ -329,7 +335,7 @@
 
                         <tr>
                             <td align="right" width="80px"><b>總重：</b></td>
-                            <td><input type="input" id="cargo_total_weight" style="width:60px" value="1" class="inputstyle" />kg</td>
+                            <td><input type="input" id="parcelTotalWeight" style="width:60px" value="1" class="inputstyle" />kg</td>
                         </tr>
                         <tr>
                             <td align="right" width="80px"><b>申明價值：</b></td>
@@ -389,7 +395,7 @@
                 <div class="que_ans" id="OrderService_ANS"></div>
             </div>
             <!--  //option value="3">逆向單原始訂單號</option--> 
-<!--             <div class="testbox">
+            <div class="testbox">
                 <div class="que_title"><span>路由查询（RouteService）</span></div>
                 <div class="que_content">
                     <table width="100%">
@@ -440,7 +446,7 @@
                 <div class="que_ant">回饋結果：</div>
                 <div class="que_ans" id="RouteService_ANS"></div>
             </div>
- -->
+
 <!--             <div class="testbox">
                 <div class="que_title"><span>訂單查询（OrderSearchService）</span></div>
                 <div class="que_content">

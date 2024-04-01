@@ -196,7 +196,7 @@
                     cargo_width:$("#cargo_width").val(),
                     cargo_height:$("#cargo_height").val(),
                     volume:$("#volume").val(),
-                    cargo_total_weight:$("#cargo_total_weight").val(),
+                    parcelTotalWeight:$("#parcelTotalWeight").val(),
                     customs_batchs:$("#customs_batchs").val(),
                     sendstarttime:Asendstarttime,
                     is_docall:$("#is_docall").val(),
@@ -323,7 +323,7 @@
                     $("#loadbox").show();
                 },
                 data:{
-                    action:"RouteService",
+                    action:"orderTrackQuery",
                     tracking_type:$("#tracking_type").val(),
                     tracking_number:$("#tracking_number").val(),
                     method_type:$("#method_type").val(),
