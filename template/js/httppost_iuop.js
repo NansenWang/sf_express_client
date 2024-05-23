@@ -152,24 +152,51 @@
                 },
                 data:{
                     action:"order",
-                    importDeclarationMethod:$('#importDeclarationMethod').val(),
-                    exportDeclarationMethod:$('#exportDeclarationMethod').val(),
+
                     customerOrderNo:$("#customerOrderNo").val(),
                     orderOperateType:$("#orderOperateType").val(),
                     cargoTypeCode:$("#cargoTypeCode").val(),
+                    sfWaybillNo:$("#sfWaybillNo").val(),
+
+                    j_country:$("#j_country").val(),
+                    j_post_code:$("#j_post_code").val(),
                     j_company:$("#j_company").val(),
                     j_contact:$("#j_contact").val(),
-                    j_tel:$("#j_tel").val(),
-                    j_province:$("#j_province").val(),
-                    j_city:$("#j_city").val(),
+                    j_email:$("#j_email").val(),
+                    j_tel_code:$("#j_fixedPhoneCode").val(),
+                    j_tel:$("#j_fixedPhoneNumber").val(),
+                    j_regionFirst:$("#j_regionFirst").val(),
+                    j_regionSecond:$("#j_regionSecond").val(),
+                    j_regionThird:$("#j_regionThird").val(),
                     j_address:$("#j_address").val(),
+                    j_shippercode:$("#j_shippercode").val(),
+
+
+                    j_tax_no:$("#j_tax_no").val(),
+
+
+                    d_country:$("#d_country").val(),
                     d_post_code:$("#d_post_code").val(),
+
+                    importDeclarationMethod:$('#importDeclarationMethod').val(),
+                    exportDeclarationMethod:$('#exportDeclarationMethod').val(),
+
                     d_company:$("#d_company").val(),
                     d_contact:$("#d_contact").val(),
-                    d_tel:$("#d_tel").val(),
-                    d_province:$("#d_province").val(),
-                    d_city:$("#d_city").val(),
+
+                    
+                    
+                    d_tel_code:$("#d_fixedPhoneCode").val(),
+                    d_tel:$("#d_fixedPhoneNumber").val(),
+
+                    d_regionFirst:$("#d_regionFirst").val(),
+                    d_regionSecond:$("#d_regionSecond").val(),
+                    d_regionThird:$("#d_regionThird").val(),
                     d_address:$("#d_address").val(),
+
+                    d_deliverycode:$("#d_deliverycode").val(),
+
+
                     payMethod:$("#payMethod").val(),
                     custid:$("#custid").val(),
                     daishou:$("#daishou").val(),
@@ -179,19 +206,11 @@
                     checkword:$("#checkword").val(),
                     declared_value:$("#declared_value").val(),
                     declared_value_currency:$("#declared_value_currency").val(),
-                    mailno:$("#mailno").val(),                     // new added 
+                                         // new added 
                     is_gen_bill_no:$("#is_gen_bill_no").val(),  
-                    j_mobile:$("#j_mobile").val(),
-                    j_shippercode:$("#j_shippercode").val(),
-                    j_country:$("#j_country").val(),
-                    j_county:$("#j_county").val(),
-                    j_post_code:$("#j_post_code").val(),
-                    d_deliverycode:$("#d_deliverycode").val(),
-                    d_country:$("#d_country").val(),
-                    d_company:$("#d_company").val(),
-                    d_mobile:$("#d_mobile").val(),
-                    d_county:$("#d_county").val(),
-                    d_post_code:$("#d_post_code").val(),
+
+
+
                     cargo_length:$("#cargo_length").val(),
                     cargo_width:$("#cargo_width").val(),
                     cargo_height:$("#cargo_height").val(),
@@ -233,7 +252,7 @@
                     merchant_pay_order:$("#merchant_pay_order").val(),
                     routelabelForReturn:$("#routelabelForReturn").val(),
                     routelabelService:$("#routelabelService").val(),
-                    j_tax_no:$("#j_tax_no").val(),
+                    
                     is_unified_waybill_no:$("#is_unified_waybill_no").val(),
                     pod_model_address:$("#pod_model_address").val(),
                     consign_emp_code:$("#consign_emp_code").val(),
@@ -290,7 +309,7 @@
 
             //develop
             case '192.168.150.128' :
-               ajax_url = 'http://develop/sf_maincustomer/api/route_service';
+               ajax_url = 'http://develop/sf_maincustomer/api/ajax_httppost';
 
                break;
                
@@ -325,7 +344,7 @@
                 data:{
                     action:"orderTrackQuery",
                     tracking_type:$("#tracking_type").val(),
-                    tracking_number:$("#tracking_number").val(),
+                    sfWaybillNo:$("#tracking_number").val(),
                     method_type:$("#method_type").val(),
                     reference_number:$("#reference_number").val(),
                     clientCode:$("#clientCode").val(),
@@ -340,11 +359,49 @@
         }    
     } 
 
-    function OrderSearchService(){
+    function orderDetailQuery(){
+
+
+        var ip = $('#IP').val();
+        var ajax_url='';
+        
+        switch (ip){
+
+            //develop
+            case '192.168.150.128' :
+               ajax_url = 'http://develop/sf_maincustomer/api/ajax_httppost';
+
+               break;
+               
+            //test
+            case '10.66.10.108':
+               ajax_url = 'https://bsp-dev-api.sf-express.com.tw/sf_maincustomer/api/route_service';
+               break;
+
+            //product   
+            case '10.66.0.96':
+            case '10.66.0.97':
+            case '10.66.0.98':
+                ajax_url = 'https://mainuser.sf-express.com.tw/sf_maincustomer/api/route_service';
+                break;
+            default: 
+                //UAT測試機    
+                ajax_url = 'https://'+ip+'/sf_maincustomer/api/route_service';
+                break;
+        }
+
+
+
+
+
+
+
+
         var chkrlt=AcceptWord();
         if (chkrlt==0){
             alert("接入編碼或檢驗碼錯誤!");
         }else{ 
+
             $.ajax({
                 url:ajax_url,
                 type:"POST",
@@ -353,16 +410,17 @@
                     $("#loadbox").show();
                 },
                 data:{
-                    action:"OrderSearchService",
-                    search_orderid:$("#search_orderid").val(),
+                    action:"orderDetailQuery",
+                    sfWaybillNo:$("#sfWaybillNo_q").val(),
+                    customerOrderNo:$("#customerOrderNo_q").val(),
                     search_type:$("search_type").val(),
                     clientCode:$("#clientCode").val(),
                     checkword:$("#checkword").val(),
-                    OrderSearchService_Mode:$("#OrderSearchService_Mode").val()
+                    orderDetailQuery_Mode:$("#orderDetailQuery_Mode").val()
                 },
                 success:function(exe){
                     $("#loadbox").hide();
-                    $("#OrderSearchService_ANS").html(exe);
+                    $("#orderDetailQuery_ANS").html(exe);
                 }
             });
         }

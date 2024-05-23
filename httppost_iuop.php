@@ -46,7 +46,7 @@
                         <tr>
 
                             <td align="right" width="80px"><b>運單號：</b></td>
-                            <td><input type="input" id="mailno" value="" class="inputstyle" />(預給號必填)</td>
+                            <td><input type="input" id="sfWaybillNo" value="" class="inputstyle" />(預給號必填)</td>
                         </tr>
                         
                         <tr>
@@ -171,15 +171,21 @@
                         </tr>
 
                         <tr>
-                            <td align="right" width="80px"><b>寄件方電話：</b></td>
-                            <td><input type="input" id="j_tel" value="" class="inputstyle" /></td>
+                            <td align="right" width="80px"><b>寄件方電話區號：</b></td>
+                            <td><input type="input" id="j_fixedPhoneCode" value="" class="inputstyle" /></td>
                         </tr>
+
+                        <tr>
+                            <td align="right" width="80px"><b>寄件方電話：</b></td>
+                            <td><input type="input" id="j_fixedPhoneNumber" value="" class="inputstyle" /></td>
+                        </tr>
+
                         <tr>
                             <td align="right" width="80px"><b>寄件省市區：</b></td>
                             <td>
-                                <input type="input" id="j_province" style="width:60px" value="" class="inputstyle" />
-                                <input type="input" id="j_city" style="width:60px" value="" class="inputstyle" />
-                                <input type="input" id="j_county" style="width:60px" value="" class="inputstyle" />
+                                <input type="input" id="j_regionFirst" style="width:60px" value="" class="inputstyle" />
+                                <input type="input" id="j_regionSecond" style="width:60px" value="" class="inputstyle" />
+                                <input type="input" id="j_regionThird" style="width:60px" value="" class="inputstyle" />
                             </td>
                         </tr>
                         <tr>
@@ -263,19 +269,25 @@
                             <td><input type="input" id="d_company" value="" class="inputstyle" /></td>
                         </tr>
                         <tr>
-                            <td align="right" width="80px"><b>到件方姓名：</b></td>
+                            <td align="right" width="80px"><b>收件方姓名：</b></td>
                             <td><input type="input" id="d_contact" value="" class="inputstyle" /></td>
                         </tr>
                         <tr>
-                            <td align="right" width="80px"><b>到件方電話：</b></td>
-                            <td><input type="input" id="d_tel" value="" class="inputstyle" /></td>
+                            <td align="right" width="80px"><b>收件方電話區號：</b></td>
+                            <td><input type="input" id="d_fixedPhoneCode" value="" class="inputstyle" /></td>
                         </tr>
+
+                       <tr>
+                            <td align="right" width="80px"><b>收件方電話：</b></td>
+                            <td><input type="input" id="d_fixedPhoneNumber" value="" class="inputstyle" /></td>
+                        </tr>
+
                         <tr>
                             <td align="right" width="80px"><b>到件省市區：</b></td>
                             <td>
-                                <input type="input" id="d_province" style="width:60px" value="" class="inputstyle" />
-                                <input type="input" id="d_city" style="width:60px" value="" class="inputstyle" />
-                                <input type="input" id="d_county" style="width:60px" value="" class="inputstyle" />
+                                <input type="input" id="d_regionFirst" style="width:60px" value="" class="inputstyle" />
+                                <input type="input" id="d_regionSecond" style="width:60px" value="" class="inputstyle" />
+                                <input type="input" id="d_regionThird" style="width:60px" value="" class="inputstyle" />
                             </td>
                         </tr>
                         <tr>
@@ -289,8 +301,9 @@
                             <td align="right" width="80px"><b>付款方式：</b></td>
                             <td>
                                 <select class="inputstyle" id="payMethod">
-                                    <option value="1" selected="true">寄付月结 </option>
-                                    <option value="2">收方付款</option>
+                                    <option value="1" selected="true">寄方付</option>
+                                    <option value="2">收方付</option>
+                                    <option value="3">第三方付</option>
                                 </select>
                             </td>
                         </tr>
@@ -298,6 +311,18 @@
                             <td align="right" width="80px"><b>付款帳號：</b></td>
                             <td><input type="input" id="custid" style="width:120px" value="9999999999" class="inputstyle" /></td>
                         </tr>
+
+                        <tr>
+                            <td align="right" width="80px"><b>税金付款方式：</b></td>
+                            <td>
+                                <select class="inputstyle" id="taxPayMethod">
+                                    <option value="1" selected="true">寄方付 </option>
+                                    <option value="2">收方付</option>
+                                    <option value="3">第三方付</option>
+                                </select>
+                            </td>
+                        </tr>
+
                         <tr>
                             <td align="right" width="80px"><b>代收金額：</b></td>
                             <td><input type="input" id="daishou" style="width:240px" value="0" class="inputstyle"/></td>
@@ -309,6 +334,12 @@
                             <td align="right" width="80px"><b>物品：</b></td>
                             <td><input type="input" name='commodityName' style="width:240px" value="" class="inputstyle" /></td>
                         </tr>
+
+                        <tr>
+                            <td align="right" width="80px"><b>重量：</b></td>
+                            <td><input type="input" name='weight' style="width:240px" value="" class="inputstyle" /></td>
+                        </tr>
+
                         <tr>
                             <td align="right" width="80px"><b>件數：</b></td>
                             <td><input type="input" id="parcelNum" style="width:240px" value="1" class="inputstyle" /></td>
@@ -447,14 +478,20 @@
                 <div class="que_ans" id="RouteService_ANS"></div>
             </div>
 
-<!--             <div class="testbox">
-                <div class="que_title"><span>訂單查询（OrderSearchService）</span></div>
+            <div class="testbox">
+                <div class="que_title"><span>訂單查询（orderDetailQuery）</span></div>
                 <div class="que_content">
                     <table width="100%">
                         <tr>
-                            <td align="right" width="80px"><b>訂單號：</b></td>
-                            <td><input type="input" id="search_orderid" value="" class="inputstyle" /></td>
+                            <td align="right" width="80px"><b>順豐運單號：</b></td>
+                            <td><input type="input" id="sfWaybillNo_q" value="" class="inputstyle" /></td>
                         </tr>
+                        <tr>
+                            <td align="right" width="80px"><b>客戶訂單號：</b></td>
+                            <td><input type="input" id="customerOrderNo_q" value="" class="inputstyle" /></td>
+                        </tr>
+
+
                         <tr>
                             <td align="right" width="80px"><b>查詢類型：</b></td>
                             <td>
@@ -470,20 +507,20 @@
                         <tr>
                             <td align="right" width="80px"><b>數據格式：</b></td>
                             <td height="20" colspan="2">
-                                <select class="inputstyle" id="OrderSearchService_Mode">
+                                <select class="inputstyle" id="orderDetailQuery_Mode">
                                     <option value="XML" selected="true">XML</option>
                                     <option value="JSON">JSON</option>
                                 </select>
                             </td>
                         </tr>
                         <tr>
-                            <td><input type="button" class="btn" value="確定" onclick="OrderSearchService();" /></td>
+                            <td><input type="button" class="btn" value="確定" onclick="orderDetailQuery();" /></td>
                         </tr>
                     </table>
                 </div>
                 <div class="que_ant">回饋結果：</div>
-                <div class="que_ans" id="OrderSearchService_ANS"></div>
-            </div> -->
+                <div class="que_ans" id="orderDetailQuery_ANS"></div>
+            </div>
 
 <!--           <div class="testbox">
             <div class="que_title"><span>退貨銷單（OrderRvsCancelService）</span></div>
