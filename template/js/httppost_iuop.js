@@ -315,18 +315,18 @@
                
             //test
             case '10.66.10.108':
-               ajax_url = 'https://bsp-dev-api.sf-express.com.tw/sf_maincustomer/api/route_service';
+               ajax_url = 'https://bsp-dev-api.sf-express.com.tw/sf_maincustomer/api/ajax_httppost';
                break;
 
             //product   
             case '10.66.0.96':
             case '10.66.0.97':
             case '10.66.0.98':
-                ajax_url = 'https://mainuser.sf-express.com.tw/sf_maincustomer/api/route_service';
+                ajax_url = 'https://mainuser.sf-express.com.tw/sf_maincustomer/api/ajax_httppost';
                 break;
             default: 
                 //UAT測試機    
-                ajax_url = 'https://'+ip+'/sf_maincustomer/api/route_service';
+                ajax_url = 'https://'+ip+'/sf_maincustomer/api/ajax_httppost';
                 break;
         }
 
